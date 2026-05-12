@@ -1,111 +1,32 @@
-# Zero-Day Database API Documentation
+# Zero-Day Stealth API
 
-A professional, secure, and lean PHP-based API for testing database connections and monitoring status via JSON.
+A professional, secure, and lean backend for database connection monitoring.
 
-## Features
-
-- **JSON Response**: Clean and structured data for easy parsing.
-- **Security**: Protected via API Key authentication.
-- **Flexibility**: Supports connection testing with default config or dynamic overrides.
-- **CLI Ready**: Optimized for terminal use with `curl`.
-
----
-
-## Project Structure
-
-- `api.php` - The main entry point for API requests.
-- `config.php` - Secure storage for database credentials and the API key.
-- `includes/Database.php` - Core PDO wrapper class.
-- `test_api.bat` - Windows CLI script for quick testing.
+## 🔐 Security Overview
+- **Stealth Mode**: Hidden from search engines and public crawlers.
+- **Authentication**: All endpoints require a cryptographically safe API Key.
+- **Logging**: Detailed security and error logging (stored locally only).
+- **Hardened**: Server-level protection against unauthorized access.
 
 ---
 
-## Authentication
+## 📡 API Usage
 
-All requests must include the `api_key` parameter.
+**Endpoint:** `https://zero.codeaxe.co.in/api.php` (Recommended: Rename this file for stealth)
 
-- **Default Key**: `zero_day_2026` (Configurable in `config.php` via `MANAGE_PASSWORD`).
+**Authentication:** 
+Must pass `api_key` in POST data.
 
----
-
-## API Reference
-
-### Test Connection / Get Status
-
-**Endpoint:** `POST /api.php`
-
-**Parameters (POST):**
-
-| Parameter   | Description                 | Required      | Default       |
-| :---------- | :-------------------------- | :------------ | :------------ |
-| `api_key` | Security key for access     | **Yes** | -             |
-| `dbname`  | Specific database to check  | No            | null          |
-| `host`    | Database server IP/Hostname | No            | (From config) |
-| `user`    | Database username           | No            | (From config) |
-| `pass`    | Database password           | No            | (From config) |
-
----
-
-## CLI Usage Examples
-
-### 1. Basic Status Check (Using Config Defaults)
-
+### Example Usage (CLI):
 ```bash
 curl -X POST https://zero.codeaxe.co.in/api.php \
-     -d "api_key=zero_day_2026"
-```
-
-### 2. Check Specific Database & Table Count
-
-```bash
-curl -X POST https://zero.codeaxe.co.in/api.php \
-     -d "api_key=zero_day_2026" \
-     -d "dbname=codeabwwro_test"
-```
-
-### 3. Test Remote Server Connection
-
-```bash
-curl -X POST https://zero.codeaxe.co.in/api.php \
-     -d "api_key=zero_day_2026" \
-     -d "host=127.0.0.1" \
-     -d "user=root" \
-     -d "pass=secret"
+     -d "api_key=YOUR_SECURE_KEY" \
+     -d "dbname=your_database"
 ```
 
 ---
 
-## JSON Response Format
-
-### Success Response
-
-```json
-{
-    "status": "success",
-    "timestamp": "2026-05-12 12:45:00",
-    "db_status": "Online",
-    "message": "Database connection established successfully.",
-    "database": {
-        "name": "codeabwwro",
-        "table_count": 12
-    }
-}
-```
-
-### Error Response
-
-```json
-{
-    "status": "error",
-    "db_status": "Offline",
-    "message": "Connection failed: SQLSTATE[HY000] [1045] Access denied for user..."
-}
-```
-
----
-
-## Setup & Configuration
-
-1. Edit `config.php` to set your master credentials.
-2. Change `MANAGE_PASSWORD` to a more secure value for production.
-3. Ensure `includes/Database.php` is present for core functionality.
+## 🛠️ Configuration
+1. Setup your credentials in the local configuration file.
+2. Define your `MANAGE_PASSWORD` (This is your API Key).
+3. Whitelist authorized IPs in the security settings.
