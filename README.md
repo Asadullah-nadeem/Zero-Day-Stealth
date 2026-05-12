@@ -1,12 +1,13 @@
-# 🕵️ Zero-Day Stealth API: A-Z Guide
+# Zero-Day Stealth API Guide
 
 A professional, secure, and lean backend solution for database connection monitoring, provisioning tests, and server health checks. This API is designed to be invisible to search engines while providing robust data to authorized users.
 
 ---
 
-## 📖 Table of Contents
+## Table of Contents
+
 1. [Overview](#-overview)
-2. [Installation & Setup](#-installation--setup)
+2. [Installation &amp; Setup](#-installation--setup)
 3. [Security Configuration](#-security-configuration)
 4. [API Usage (POST Parameters)](#-api-usage)
 5. [Using Postman (Step-by-Step)](#-using-postman-step-by-step)
@@ -16,8 +17,10 @@ A professional, secure, and lean backend solution for database connection monito
 
 ---
 
-## 🛡️ Overview
+## Overview
+
 Zero-Day Stealth API allows you to remotely verify MariaDB/MySQL connections. It provides:
+
 - **Instant Status**: See if a database is Online or Offline.
 - **Data Insights**: Table counts and available database lists.
 - **Stealth**: Hidden from Google/Bing via robots.txt and server headers.
@@ -25,7 +28,8 @@ Zero-Day Stealth API allows you to remotely verify MariaDB/MySQL connections. It
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
+
 1. **Clone the Project**:
    ```bash
    git clone https://github.com/Asadullah-nadeem/Zero-Day-Stealth.git
@@ -40,30 +44,35 @@ Zero-Day Stealth API allows you to remotely verify MariaDB/MySQL connections. It
 
 ---
 
-## 🔒 Security Configuration
+## Security Configuration
+
 The API is hardened by default:
+
 - **IP Whitelisting**: Edit `ALLOWED_IPS` in `config.php` to restrict access.
 - **Strict Mode**: Set `STRICT_IP_CHECK` to `true` to block any IP not in your whitelist.
 - **Log Access**: The `.htaccess` file prevents anyone from downloading your logs or viewing your config.
 
 ---
 
-## 📡 API Usage
+## API Usage
+
 All requests must be sent via **HTTP POST**.
 
 ### Request Body (Form Data):
-| Key | Description | Required |
-| :--- | :--- | :--- |
+
+| Key         | Description                                        | Required      |
+| :---------- | :------------------------------------------------- | :------------ |
 | `api_key` | Your `MANAGE_PASSWORD` defined in `config.php` | **YES** |
-| `dbname` | The database name you want to test | NO |
-| `host` | Override host for dynamic testing | NO |
-| `user` | Override username for dynamic testing | NO |
-| `pass` | Override password for dynamic testing | NO |
-| `port` | Override port (default 3306) | NO |
+| `dbname`  | The database name you want to test                 | NO            |
+| `host`    | Override host for dynamic testing                  | NO            |
+| `user`    | Override username for dynamic testing              | NO            |
+| `pass`    | Override password for dynamic testing              | NO            |
+| `port`    | Override port (default 3306)                       | NO            |
 
 ---
 
-## 🚀 Using Postman (Step-by-Step)
+## Using Postman (Step-by-Step)
+
 Follow these steps to test your API using [Postman](https://www.postman.com/):
 
 1. **Create Request**: Open Postman and click `New` -> `HTTP Request`.
@@ -80,7 +89,8 @@ Follow these steps to test your API using [Postman](https://www.postman.com/):
 
 ---
 
-## 💻 CLI Usage (cURL)
+## CLI Usage (cURL)
+
 For quick testing directly from your terminal:
 
 ```bash
@@ -95,7 +105,8 @@ curl -X POST https://zero.codeaxe.co.in/api.php \
 
 ---
 
-## 🕵️ Stealth Features
+## Stealth Features
+
 - **robots.txt**: Blocks all search engine indexing.
 - **X-Robots-Tag**: Server-side header to prevent caching and snippets.
 - **Forbidden Index**: Visiting the root folder displays a 403 error page.
@@ -103,7 +114,8 @@ curl -X POST https://zero.codeaxe.co.in/api.php \
 
 ---
 
-## ❓ Troubleshooting
+## Troubleshooting
+
 - **401 Unauthorized**: Your `api_key` is incorrect or missing.
 - **403 Forbidden**: Your IP is not whitelisted, or you are trying to view a protected file.
 - **500 Error**: Check `logs/api_errors.log` for the exact database connection failure reason.
