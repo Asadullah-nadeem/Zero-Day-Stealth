@@ -11,7 +11,7 @@ define('DB_PREFIX', 'TEST1_'); // Added prefix here
 define('DB_CHARSET', 'utf8mb4');
 
 // Management Password for the Dashboard
-define('MANAGE_PASSWORD', 'zero_day_2026'); 
+define('MANAGE_PASSWORD', 'Zd7#vX9!K2_Lp4$nQ8*R1wM5_ZeroDay'); 
 
 // Security Settings
 define('ALLOWED_IPS', ['127.0.0.1', '::1']); // Add your authorized IPs here
