@@ -1,0 +1,15 @@
+# Prevent directory listing
+Options -Indexes
+
+# Protect logs, config, and documentation
+<FilesMatch "^(config\.php|\.env|.*\.log|README\.md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Custom Error Pages
+ErrorDocument 403 /index.php
+ErrorDocument 404 /index.php
+
+# Block search engine indexers at server level
+Header set X-Robots-Tag "noindex, nofollow"
