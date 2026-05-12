@@ -1,5 +1,3 @@
-# Ignore sensitive configuration
-config.php
 
 # Ignore logs
 logs/*.log

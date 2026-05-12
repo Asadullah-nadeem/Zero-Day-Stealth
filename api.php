@@ -63,7 +63,7 @@ try {
     $response['status'] = 'error';
     $response['message'] = 'Database connection error recorded.';
     // Don't leak full error in production JSON, only in logs
-    if (STRICT_IP_CHECK === false) { $response['debug'] = $e->getMessage(); }
+    // Error is recorded in Logger::error above
 }
 
 echo json_encode($response);
