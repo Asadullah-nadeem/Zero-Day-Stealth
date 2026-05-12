@@ -32,7 +32,7 @@ Zero-Day Stealth API allows you to remotely verify MariaDB/MySQL connections. It
 
 1. **Clone the Project**:
    ```bash
-   git clone https://github.com/Asadullah-nadeem/Zero-Day-Stealth.git
+   git clone http://github.com/Asadullah-nadeem/Zero-Day-Stealth.git
    ```
 2. **Configure Database**:
    Open `config.php` and enter your master server details:
@@ -73,11 +73,11 @@ All requests must be sent via **HTTP POST**.
 
 ## Using Postman (Step-by-Step)
 
-Follow these steps to test your API using [Postman](https://www.postman.com/):
+Follow these steps to test your API using [Postman](http://www.postman.com/):
 
 1. **Create Request**: Open Postman and click `New` -> `HTTP Request`.
 2. **Method**: Set the method to **`POST`**.
-3. **URL**: Enter your API URL (e.g., `https://zero.codeaxe.co.in/api.php`).
+3. **URL**: Enter your API URL (e.g., `http://localhost/api.php`).
 4. **Body Tab**:
    - Click on the **`Body`** tab.
    - Select **`x-www-form-urlencoded`**.
@@ -95,10 +95,10 @@ For quick testing directly from your terminal:
 
 ```bash
 # Basic Check
-curl -X POST https://zero.codeaxe.co.in/api.php -d "api_key=YOUR_KEY"
+curl -X POST http://localhost/api.php -d "api_key=YOUR_KEY"
 
 # Database Specific Check
-curl -X POST https://zero.codeaxe.co.in/api.php \
+curl -X POST http://localhost/api.php \
      -d "api_key=YOUR_KEY" \
      -d "dbname=codeabwwro_app"
 ```
